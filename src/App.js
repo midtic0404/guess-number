@@ -27,16 +27,19 @@ function App() {
         setGameOn(false);
       }
       setUserInput('');
-    } else {
-      console.log('Invalid Input');
     }
   }
 
   function inputValid(input) {
     if (input.trim() === '' || isNaN(+input)) {
+      setProgressText('Input Value Is Not Valid!');
       return false;
+    } else if (+input > 100 || +input < 1) {
+      setProgressText('Only In Range 1 - 100');
+      return false;
+    } else {
+      return true;
     }
-    return true;
   }
 
   function onUserInput(e) {
