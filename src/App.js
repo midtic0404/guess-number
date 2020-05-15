@@ -43,6 +43,12 @@ function App() {
     setUserInput(e.target.value);
   }
 
+  function checkKey(e) {
+    if (e.which === 13) {
+      checkAnswer();
+    }
+  }
+
   return (
     <div className='App'>
       <h2>Guess Number Between 1 to 100</h2>
@@ -58,6 +64,7 @@ function App() {
             type='text'
             value={userInput}
             onChange={onUserInput}
+            onKeyUp={checkKey}
           />
           <button className='button' onClick={checkAnswer}>
             Guess
